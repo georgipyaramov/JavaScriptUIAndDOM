@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        p{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        div{
+            border: 1px solid black;
+            padding: 10px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+        strong{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" onclick="onGetElementByBtnClick()">Select direct children divs with "getElementsByTagName"</a>
+    <br/>
+    <br/>
+    <a href="#" onclick="onQuerySelectBtnClick()">Select direct children divs with "querySelectorAll"</a>
+    <div id="main-div">
+        <p>Div.</p>
+        <div>
+            <p>Direct child.</p>
+        </div>
+        <div>
+            <p>Direct child.</p>
+            <div>
+                <p>Div inside another div.</p>
+            </div>
+        </div>
+        <div>
+            <p>Direct child.</p>
+            <aside>
+                <p>Div inside aside.</p>
+                <div>
+                    <p>Two levels deep.</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="DivsDirectlyInsideOtherDivs.js"></script>
+</body>
+</html>

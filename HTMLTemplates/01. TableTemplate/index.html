@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Table template</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+        thead tr{
+            background-color: #bbb;
+        }
+        tr:nth-child(2n + 0) {
+            background-color: #ddd;
+        }
+        td:nth-child(2){
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="template-container"></div>
+    <script id="table-template" type="text/x-handlebars-template">
+        <table>
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Title</th>
+                <th>Date #1</th>
+                <th>Date #2</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#tableData}}
+                <tr>
+                    <td>{{index}}</td>
+                    <td>{{lectureName}}</td>
+                    <td>{{firstDate}}</td>
+                    <td>{{secondDate}}</td>
+                </tr>
+            {{/tableData}}
+            </tbody>
+        </table>
+    </script>
+    <script src="libraries/handlebars-v1.3.0.js"></script>
+    <script>
+        var tableTemplateHTML = document.getElementById('table-template').innerHTML,
+            tableData = [{
+                index: '0',
+                lectureName: 'Course Introduction',
+                firstDate: 'Wed 18:00, 28-May-2014',
+                secondDate: 'Thu 14:00, 29-May-2014'
+            },{
+                index: '1',
+                lectureName: 'Canvas',
+                firstDate: 'Wed 18:00, 28-May-2014',
+                secondDate: 'Thu 14:00, 29-May-2014'
+            },{
+                index: '2',
+                lectureName: 'Canvas frameworks',
+                firstDate: 'Thu 18:00, 29-May-2014',
+                secondDate: 'Fri 14:00, 30-May-2014'
+            },{
+                index: '3',
+                lectureName: 'SVG and SVG frameworks',
+                firstDate: 'Thu 18:00, 29-May-2014',
+                secondDate: 'Fri 14:00, 30-May-2014'
+            },{
+                index: '4',
+                lectureName: 'Animations with Canvas and SVG',
+                firstDate: 'Wed 18:00, 04-Jun-2014',
+                secondDate: 'Thu 14:00, 05-Jun-2014'
+            },{
+                index: '5',
+                lectureName: 'DOM and selecting elements',
+                firstDate: 'Wed 18:00, 04-Jun-2014',
+                secondDate: 'Thu 14:00, 05-Jun-2014'
+            },{
+                index: '6',
+                lectureName: 'DOM operations',
+                firstDate: 'Thu 18:00, 05-Jun-2014',
+                secondDate: 'Fri 14:00, 06-Jun-2014'
+            },{
+                index: '7',
+                lectureName: 'Event model',
+                firstDate: 'Thu 18:00, 05-Jun-2014',
+                secondDate: 'Fri 14:00, 06-Jun-2014'
+            },{
+                index: '8',
+                lectureName: 'jQuery overview',
+                firstDate: 'Wed 18:00, 11-Jun-2014',
+                secondDate: 'Thu 14:00, 12-Jun-2014'
+            },{
+                index: '9',
+                lectureName: 'HTML templates',
+                firstDate: 'Wed 18:00, 11-Jun-2014',
+                secondDate: 'Thu 14:00, 12-Jun-2014'
+            },{
+                index: '10',
+                lectureName: 'Exam preparation',
+                firstDate: 'Thu 18:00, 12-Jun-2014',
+                secondDate: 'Fri 14:00, 13-Jun-2014'
+            },{
+                index: '11',
+                lectureName: 'Exam',
+                firstDate: 'Tue 10:00, 17-Jun-2014',
+                secondDate: 'Tue 16:30, 17-Jun-2014'
+            },{
+                index: '12',
+                lectureName: 'Course Introduction',
+                firstDate: 'Thu 10:00, 19-Jun-2014',
+                secondDate: 'Thu 10:00, 19-Jun-2014'
+            }],
+            tableTemplate;
+
+        tableTemplate = Handlebars.compile(tableTemplateHTML);
+        document.getElementById('template-container').innerHTML = tableTemplate({tableData: tableData});
+    </script>
+</body>
+</html>

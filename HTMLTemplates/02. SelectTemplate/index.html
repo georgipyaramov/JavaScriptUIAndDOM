@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Select template</title>
+</head>
+<body>
+    <div id="template-container"></div>
+    <script id="select-template" type="text/x-handlebars-template">
+        <select>
+            {{#selectData}}
+            <option value="{{value}}">{{text}}</option>
+            {{/selectData}}
+
+        </select>
+    </script>
+
+    <script src="libraries/handlebars-v1.3.0.js"></script>
+
+    <script>
+        var selectTemplateHTML = document.getElementById('select-template').innerHTML,
+            selectTemplate,
+            selectData = [{
+                value: 1,
+                text: 'One'
+            },{
+                value: 2,
+                text: 'Two'
+            },{
+                value: 3,
+                text: 'Three'
+            },{
+                value: 4,
+                text: 'Four'
+            },{
+                value: 5,
+                text: 'Five'
+            },{
+                value: 6,
+                text: 'Six'
+            },{
+                value: 7,
+                text: 'Seven'
+            }];
+
+        selectTemplate = Handlebars.compile(selectTemplateHTML);
+        document.getElementById('template-container').innerHTML = selectTemplate({selectData: selectData});
+    </script>
+</body>
+</html>
